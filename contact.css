@@ -1,0 +1,282 @@
+body{
+    font-family:'Manrope',sans-serif;
+}
+
+.main-header{
+    background:#0B0B0B;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.logo img{
+    width:125px;
+    height:auto;
+    transition:.3s;
+}
+
+.logo img:hover{
+    transform:scale(1.05);
+}
+
+.nav-link{
+    color:#B7B0A7 !important;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:#F7F1E8 !important;
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.btn-estimate{
+    color:#F5F2EC;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-estimate:hover{
+    color:#A47551;
+}
+
+.btn-book{
+    background:#8B5E3C;
+    color:#fff;
+    border-radius:12px;
+    padding:12px 22px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-book:hover{
+    background:#A47551;
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+.contact-hero{
+    background:#0B0B0B;
+    min-height:100vh;
+    padding:100px 0;
+}
+
+.contact-form-row{
+    margin-top:70px;
+}
+.gradient-text{
+    background:linear-gradient(
+        90deg,
+        #8B5CF6,
+        #3B82F6,
+        #22C55E,
+        #84CC16
+    );
+
+    background-clip:text;
+    -webkit-background-clip:text;
+
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+}
+
+.contact-subtitle{
+    max-width:760px;
+    margin:auto;
+    color:#A7A7A7;
+    font-size:1.35rem;
+    line-height:1.8;
+}
+
+.contact-card{
+    background:#ffffff;
+    border-radius:30px;
+    min-height:700px;
+    box-shadow:0 30px 70px rgba(0,0,0,.25);
+}
+
+.contact-form{
+    background:#141414;
+    border:1px solid #262626;
+    border-radius:24px;
+    padding:50px;
+}
+
+.btn-primary{
+    padding:14px 36px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+
+.strategy-section{
+    background: #111111;
+    padding:110px 0 70px;
+}
+
+.strategy-heading{
+    color:#F7F1E8;
+    font-size:3rem;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.strategy-text{
+    max-width:700px;
+    margin:0 auto;
+    color:#B7B0A7;
+    font-size:1.1rem;
+    line-height:1.8;
+}
+
+.strategy-section .status-badge{
+    background:#171717;
+    border:1px solid #2B2B2B;
+    color:#F7F1E8;
+    padding:12px 22px;
+    border-radius:50px;
+    display:inline-flex;
+    align-items:center;
+    gap: 10px;
+    font-weight:600;
+}
+
+.strategy-section .status-badge:hover{
+    border-color:#8B5E3C;
+    transition:.3s;
+}
+
+.badge-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#39FF14;
+    box-shadow:0 0 10px #39FF14;
+    display:inline-block;
+    flex-shrink:0;
+    animation:pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+        box-shadow:0 0 6px #39FF14;
+    }
+
+    50%{
+        transform:scale(1.25);
+        box-shadow:0 0 18px #39FF14;
+    }
+
+    100%{
+        transform:scale(1);
+        box-shadow:0 0 6px #39FF14;
+    }
+
+}
+
+
+
+
+@media (max-width:768px){
+
+    .strategy-call-section{
+        padding:80px 0 50px;
+    }
+
+    .strategy-title{
+        font-size:2.2rem;
+    }
+
+    .strategy-subtitle{
+        font-size:1rem;
+        padding:0 15px;
+    }
+
+}
+
+.booking-calendar{
+    background:#0A0A0A;
+    padding-bottom:120px;
+}
+
+.calendar-wrapper{
+    background:#fff;
+    border-radius:22px;
+    overflow:hidden;
+    max-height: 700px;
+}
+
+.calendar-wrapper iframe{
+    display:block;
+    width:100%;
+    height: 650px;
+    border:none;
+}
+
+
+.footer{
+    width:100%;
+    background:#0B0B0B;
+    padding:80px 0 30px;
+    border-top:1px solid #222;
+}
+.footer-logo{
+    width:90px;
+    margin-bottom:25px;
+}
+.footer-description{
+    color:#B7B0A7;
+    line-height:1.8;
+    max-width:320px;
+}
+.footer h5{
+    color:#F5F2EC;
+    font-size:18px;
+    margin-bottom:20px;
+    font-weight:600;
+}
+.footer-links{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+.footer-links li{
+    margin-bottom:12px;
+}
+.footer-links i{
+    font-size:20px;
+}
+.footer-links a{
+    color:#B7B0A7;
+    text-decoration:none;
+    transition:.3s;
+}
+.footer-links a:hover{
+    color:#A47551;
+    padding-left:5px;
+}
+.footer-bottom{
+    border-top:1px solid #222;
+    margin-top:70px;
+    padding-top:30px;
+    text-align:center;
+}
+.footer .row{
+    justify-content:space-between;
+}
+.copyright{
+    text-align:center;
+    color:#888;
+    margin:0;
+    font-size:14px;
+}

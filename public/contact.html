@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>AdeusiLabs</title>
+        <link rel="icon" href="../assets/images/favicon logo.png" type="image/png">
+        <link rel="stylesheet" href="../contact.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+    <header class="main-header">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-between py-3">
+
+      <a href="../index.html" class="text-decoration-none logo">
+    <img src="../assets/images/logodark.png"
+         alt="AdeusiLabs Logo" width="130" class="img-fluid">
+     </a>
+  
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="./about.html" class="nav-link">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./services.html" class="nav-link">Services</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./projects.html" class="nav-link">Projects</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./testimonials.html" class="nav-link">Testimonials</a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="./estimate.html" class=" btn-estimate">
+         Get Estimate </a>
+
+          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3XcVG-Fh505LuXpDS6bQSDnSUQhBY4s1kZW_xtkbpAOgtXSkHpbhZuTtkhYz3hnEKkpKdwH4-R" class=" btn-book">
+                    Book Call
+                </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<section class="contact-hero py-5">
+
+    <div class="container">
+
+        <div class="row justify-content-center text-center">
+
+            <div class="col-lg-9">
+
+                <h1 class="display-2 fw-bold mb-4">
+                    Let's Build
+                    <span class="gradient-text">Something Amazing</span>
+                </h1>
+
+                <p class="lead contact-subtitle">
+                    Have a project in mind? Whether you need a modern business
+                    website, landing page, or custom web application, I'd love
+                    to hear about it. Fill out the form below and I'll get back
+                    to you within 24 hours.
+                </p>
+
+            </div>
+
+        </div>
+
+
+<div class="row justify-content-center contact-form-row">
+
+    <div class="col-lg-8">
+
+                <form id="contactForm">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-4">
+                    <label for="name" class="form-label">
+                        <i class="bi bi-person me-2"></i>
+                        Full Name
+                   </label>        
+                   <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        name="name"
+                        placeholder="John Doe"
+                        required>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <label for="email" class="form-label">
+                        <i class="bi bi-envelope me-2"></i>
+                        Email Address
+                    </label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="_replyto"
+                        placeholder="john@email.com"
+                        required>
+                </div>
+
+            </div>
+
+            <div class="mb-4">
+                    <label for="company" class="form-label">
+                        <i class="bi bi-building me-2"></i>
+                         Company
+                    </label>               
+                    
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="company"
+                    name="company"
+                    placeholder="AdeusiLabs">
+            </div>
+
+            <div class="mb-4">
+                    <label for="service" class="form-label">
+                         <i class="bi bi-code-slash me-2"></i>
+                         What do you need?
+                    </label>
+
+                <select
+                    class="form-select"
+                    id="service"
+                    name="service"
+                    required>
+
+                    <option selected disabled>Select a service</option>
+                    <option>Business Website</option>
+                    <option>Landing Page</option>
+                    <option>Portfolio Website</option>
+                    <option>Web Application</option>
+                    <option>Website Redesign</option>
+                    <option>UI/UX Design</option>
+                    <option>Other</option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-4">
+                    <label for="budget" class="form-label">
+                        <i class="bi bi-cash-stack me-2"></i>
+                        Estimated Budget
+                    </label>
+
+                <select
+                    class="form-select"
+                    id="budget"
+                    name="budget">
+
+                    <option selected disabled>Select your budget</option>
+                    <option>Less than $500</option>
+                    <option>$500 - $1,000</option>
+                    <option>$1,000 - $3,000</option>
+                    <option>$3,000+</option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-4">
+                    <label for="message" class="form-label">
+                         <i class="bi bi-chat-left-text me-2"></i>
+                         Tell me about your project
+                    </label>
+
+                <textarea
+                    class="form-control"
+                    id="message"
+                    name="message"
+                    rows="6"
+                    placeholder="Describe your project, goals, timeline, and any additional details..."
+                    required></textarea>
+
+            </div>
+
+            <button
+                type="submit"
+                class="btn btn-primary px-5 py-3"
+                id="contactBtn">
+
+                Send Message
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+    </div>
+</section>
+
+
+<section class="strategy-section text-center py-5">
+
+    <div class="container">
+
+        <span class="status-badge">
+
+            <span class="badge-dot"></span>
+            Free 30-Minute Consultation
+
+        </span>
+        
+
+        <h2 class="strategy-heading display-5 fw-bold mt-4">
+            Book Your Free Strategy Call
+        </h2>
+
+        <p class="strategy-text mx-auto">
+
+            Schedule a 30-minute consultation to discuss your project,
+            ask questions, and explore the best solution for your business.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<section class="booking-calendar py-5">
+
+    <div class="container">
+        <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-11">
+        <div class="calendar-wrapper">
+
+            <iframe
+            src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3XcVG-Fh505LuXpDS6bQSDnSUQhBY4s1kZW_xtkbpAOgtXSkHpbhZuTtkhYz3hnEKkpKdwH4-R"
+            width="100%"
+            height="850"
+            frameborder="0">
+            </iframe>
+
+        </div>
+        </div>
+        </div>
+        
+    </div>
+
+</section>
+
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="row gy-5">
+
+            <div class="col-lg-3">
+
+                <img src="../assets/images/logodark.png"
+                     alt="AdeusiLabs"
+                     class="footer-logo">
+
+                <p class="footer-description">
+                    Building modern web experiences that are fast,
+                    responsive, and designed to help businesses grow.
+                </p>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <ul class="footer-links">
+
+                    <li>
+                      <a href="./about.html">About</a>
+                    </li>
+
+                    <li>
+                         <a href="./services.html">Services</a>
+                     </li>
+
+                    <li>
+                         <a href="./projects.html">Projects</a>
+                    </li>
+
+                    <li>
+                         <a href="./testimonials.html">Testimonials</a>
+                    </li>
+
+                    <li>
+                         <a href="./contact.html">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class=" col-lg-3">
+
+                <h5>Services</h5>
+
+                <ul class="footer-links">
+
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">UI/UX Design</a></li>
+                    <li><a href="#">Responsive Websites</a></li>
+                    <li><a href="#">Website Optimization</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-6 col-lg-3">
+
+                <h5>Connect</h5>
+
+          <ul class="footer-links">
+
+             <li><a href="https://github.com/adedolapoadeusi0-cyber" target="_blank">
+                 <i class="bi bi-github"></i>
+             </a></li>
+
+             <li><a href="https://www.linkedin.com/in/adeusiadedolapodorcas/" target="_blank">
+                <i class="bi bi-linkedin"></i>
+             </a></li>
+
+             <li><a href="https://x.com/codewithdorcas" target="_blank">
+                <i class="bi bi-twitter-x"></i>
+             </a></li>
+
+             <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=adeusilabs@gmail.com" target="_blank">
+                    <i class="bi bi-envelope-fill"></i>
+                </a></li>
+
+            </ul>
+
+             </div> 
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p class="copyright">
+                © 2026 AdeusiLabs. All rights reserved.
+            </p>
+        </div>
+    </div>
+
+</footer>
+
+<script src="../contact.js"></script>
+
+
+</body>
+</html>

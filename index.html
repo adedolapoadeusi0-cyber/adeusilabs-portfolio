@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>AdeusiLabs</title>
+        <link rel="icon" href="./assets/images/favicon logo.png" type="image/png">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+<header class="main-header">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-between py-3">
+
+      <a href="index.html" class="text-decoration-none logo">
+    <img src="./assets/images/logodark.png"
+         alt="AdeusiLabs Logo" width="130" class="img-fluid">
+     </a>
+  
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="./public/about.html" class="nav-link">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./public/services.html" class="nav-link">Services</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./public/projects.html" class="nav-link">Projects</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./public/testimonials.html" class="nav-link">Testimonials</a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="./public/estimate.html" class="btn-estimate">
+         Get Estimate </a>
+
+          <a href="./public/contact.html" class="btn-book">
+                    Book Call
+         </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+ 
+<section class="hero-section text-center py-5">
+
+    <div class="container">
+
+        <div class="status-badge d-inline-flex align-items-center px-4 py-2 rounded-pill mb-5">
+
+            <span class="status-dot me-2"></span>
+
+            <span class="fw-semibold">
+                Available for Work
+            </span>
+
+            <span class="mx-2 text-secondary">•</span>
+
+            <span>Lagos, Nigeria</span>
+
+            <span class="mx-2 text-secondary">•</span>
+
+            <span id="current-time"></span>
+
+        </div>
+
+
+        <h1 class="display-2 fw-bold">
+            Building
+            <span class="highlight">
+                Modern
+            </span>
+            <br>
+            Web Experiences
+            <br>
+            That Make an Impact.
+        </h1>
+
+        <p class="lead col-lg-8 mx-auto mt-4">
+            I design and develop fast, responsive, and scalable web
+            applications with a focus on performance, user experience,
+            and clean code.
+        </p>
+
+        <div class="mt-5">
+
+            <a href="./public/contact.html" class="btn btn-primary btn-lg me-3">
+                Book a Call
+            </a>
+
+            <a href="./public/estimate.html" class="btn btn-outline-light btn-lg">
+                Get Estimate
+            </a>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="stats-section py-5">
+    <div class="container">
+        <div class="row text-center">
+
+            <div class="stat-item col-md-3">
+                <h2 class="stat-number">50+</h2>
+                <p class="stat-text">Apps Launched</p>
+            </div>
+
+            <div class=" stat-item col-md-3">
+                <h2 class="stat-number">$100M+</h2>
+                <p class="stat-text">User Valuation Generated</p>
+            </div>
+
+            <div class=" stat-item col-md-3">
+                <h2 class="stat-number">4.9/5</h2>
+                <p class="stat-text">Average Rating</p>
+            </div>
+
+            <div class="stat-item col-md-3">
+                <h2 class="stat-number">12+</h2>
+                <p class="stat-text">Industry Awards</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="services" class="services-section py-5">
+    <div class="container">
+
+        <div class="text-center mb-3">
+            <span class="status-badge">
+                <span class="status-dot me-2"></span>
+                My Services
+            </span>
+
+        </div>
+        <h2 class="text-center fw-bold display-5">
+            What I Can Help You Build
+        </h2>
+
+        <p class="text-center text-secondary col-lg-7 mx-auto mb-5">
+            From responsive websites to full-stack web applications,
+            I build digital solutions that are fast, scalable,
+            and designed to deliver great user experiences.
+        </p>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+
+                <div class="service-card h-100">
+
+                    <i class="bi bi-code-slash service-icon"></i>
+                    <h4>Web Development</h4>
+                    <p>
+                        I build modern, responsive websites using
+                        HTML, CSS, Bootstrap, JavaScript,
+                        React, Node.js, and MongoDB.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card h-100">
+
+                    <i class="bi bi-palette service-icon"></i>
+                    <h4>UI/UX Design</h4>
+                    <p>
+                        Creating clean, intuitive interfaces
+                        that make websites easy to use and
+                        enjoyable for every visitor.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card h-100">
+
+                    <i class="bi bi-window service-icon"></i>
+                    <h4>Full Stack Apps</h4>
+                    <p>
+                        Building complete web applications from
+                        frontend interfaces to backend APIs
+                        and database integration.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card h-100">
+
+                    <i class="bi bi-rocket-takeoff service-icon"></i>
+                    <h4>Performance</h4>
+                    <p>
+                        Optimizing websites for speed,
+                        accessibility, responsiveness,
+                        and user experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="process" class="process-section py-5">
+    <div class="container">
+
+        <div class="text-center mb-3">
+            <span class="status-badge">
+                <span class="status-dot me-2"></span>
+                My Process
+            </span>
+
+        </div>
+        <h2 class="text-center fw-bold display-5">
+            How I Bring Ideas to Life
+        </h2>
+        <p class="text-center text-secondary col-lg-7 mx-auto mb-5">
+            Every project follows a simple process focused on
+            understanding your goals, creating thoughtful
+            solutions, and delivering high-quality results.
+        </p>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+
+                <div class="process-card text-center">
+                    <i class="bi bi-lightbulb process-icon"></i>
+                    <h5>1. Discover</h5>
+
+                    <p>
+                        Understanding your goals,
+                        audience, and project requirements
+                        before writing a single line of code.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="process-card text-center">
+
+                    <i class="bi bi-pencil-square process-icon"></i>
+                    <h5>2. Design</h5>
+                    <p>
+                        Creating clean layouts and
+                        user-focused interfaces that
+                        balance aesthetics and usability.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="process-card text-center">
+
+                    <i class="bi bi-laptop process-icon"></i>
+                    <h5>3. Develop</h5>
+                    <p>
+                        Turning designs into responsive,
+                        scalable web applications using
+                        modern development tools.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="process-card text-center">
+
+                    <i class="bi bi-rocket process-icon"></i>
+                    <h5>4. Launch</h5>
+                    <p>
+                        Testing, deploying, and optimizing
+                        your website to ensure everything
+                        runs smoothly after launch.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="projects py-5">
+    <div class="container">
+
+        <div class="projects-header">
+
+            <div class="text-center mb-3">
+            <span class="status-badge">
+                    <span class="status-dot me-2"></span>
+                    My Projects
+                </span>
+            </div>
+
+            <h2 class="section-title">
+                Featured Work
+            </h2>
+
+            <p class="section-subtitle">
+                A collection of projects showcasing my growing expertise in
+                responsive web development, user experience, and modern
+                front-end technologies.
+            </p>
+
+
+                <a href="./public/projects.html" class="view-projects">
+                    View All Projects
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+        </div>
+        
+
+ <div class="row g-4 mt-4">
+    <div class="col-md-6 col-lg-4">
+
+        <div class="project-card">
+
+            <img src="./assets/images/restaurant website.png"
+                 class="img-fluid project-image"
+                 alt="Project">
+
+            <div class="project-content">
+
+                <span class="project-category">
+                    Responsive Website
+                </span>
+
+                <h4>
+                    Restaurant Landing Page
+                </h4>
+
+                <p>
+                    A clean and responsive landing page designed for a
+                    modern restaurant using Bootstrap and custom CSS.
+                </p>
+
+                <div class="project-stack">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>Bootstrap</span>
+                </div>
+
+                <a href="#" class="project-link">
+                    View Project
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+     </div>
+
+
+<div class="col-md-6 col-lg-4">
+
+        <div class="project-card">
+
+            <img src="./assets/images/business website.png"
+                 class="img-fluid project-image"
+                 alt="Project">
+
+            <div class="project-content">
+
+                <span class="project-category">
+                    Responsive Website
+                </span>
+
+                <h4>
+                    Business Portfolio Website
+                </h4>
+
+                <p>
+                    A clean and responsive landing page designed for a
+                    modern business using Bootstrap and custom CSS.
+                </p>
+
+                <div class="project-stack">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>Bootstrap</span>
+                </div>
+
+                <a href="#" class="project-link">
+                    View Project
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+
+<div class="col-md-6 col-lg-4">
+        <div class="project-card">
+
+            <img src="./assets/images/travel registration website.png"
+                 class="img-fluid project-image"
+                 alt="Project">
+
+            <div class="project-content">
+                <span class="project-category">
+                    Responsive Website
+                </span>
+
+                <h4>
+            Travel Registration Landing Page
+                </h4>
+
+                <p>
+                    A clean and responsive landing page designed for a
+                    modern travel agency using Bootstrap and custom CSS.
+                </p>
+
+                <div class="project-stack">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>Javascript</span>
+                </div>
+
+                <a href="#" class="project-link">
+                    View Project
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
+        </div>
+</div>
+
+ </div>
+</div>
+</section>
+
+
+<section class="testimonial-section py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-3">
+            <span class="status-badge">
+                <span class="status-dot me-2"></span>
+                    Testimonials
+            </span>
+
+        <h2 class="section-title">
+            What Clients Say
+        </h2>
+
+        <p class="section-subtitle">
+            Every project is built with attention to detail, clear communication,
+            and a focus on creating digital experiences that deliver results.
+        </p>
+
+        <div class="row g-4 mt-4">
+
+            <div class="col-lg-4">
+
+                <div class="testimonial-card">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "AdeusiLabs completely transformed our online presence.
+                        The website is clean, responsive, and exactly what our
+                        restaurant needed."
+                    </p>
+
+                    <div class="client">
+
+                        <h5>Sarah Johnson</h5>
+
+                        <span>Savora Grill</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="testimonial-card">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "Excellent communication throughout the project.
+                        Everything was delivered on time and the final result
+                        exceeded expectations."
+                    </p>
+
+                    <div class="client">
+
+                        <h5>Michael Cole</h5>
+
+                        <span>Pinnacle Consulting</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <div class="testimonial-card">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "Our registration page now feels modern and professional.
+                        We saw a significant improvement in user engagement."
+                    </p>
+
+                    <div class="client">
+
+                        <h5>David Adams</h5>
+
+                        <span>WanderWise Travel</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="faq-section py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <span class="status-badge">
+                <span class="status-dot"></span>
+                FAQs
+            </span>
+
+            <h2 class="section-title mt-4">
+                Frequently Asked Questions
+            </h2>
+
+            <p class="section-subtitle">
+                Everything you need to know before we start
+                building your next website.
+            </p>
+
+        </div>
+
+        <div class="accordion" id="faqAccordion">
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faqOne">
+
+                        How long does it take to build a website?
+
+                    </button>
+
+                </h2>
+
+                <div
+                    id="faqOne"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body">
+
+                        Most websites are completed within
+                        2–4 weeks depending on complexity,
+                        required features, and revisions.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faqTwo">
+
+                        How much does a website cost?
+
+                    </button>
+
+                </h2>
+
+                <div
+                    id="faqTwo"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body">
+
+                        Every project is different.
+                        After discussing your goals,
+                        I'll provide a custom quote
+                        tailored to your requirements.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faqThree">
+
+                        Will my website work on mobile devices?
+
+                    </button>
+
+                </h2>
+
+                <div
+                    id="faqThree"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body">
+
+                        Absolutely.
+                        Every website is fully responsive
+                        and optimized for desktops, tablets,
+                        and smartphones.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faqFour">
+
+                        Can you redesign my existing website?
+
+                    </button>
+
+                </h2>
+
+                <div
+                    id="faqFour"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body">
+
+                        Yes.
+                        Whether your site needs a visual refresh,
+                        performance improvements, or a complete
+                        redesign, I can help.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faqFive">
+
+                        What technologies do you use?
+
+                    </button>
+
+                </h2>
+
+                <div
+                    id="faqFive"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body">
+
+                        HTML5, CSS3, Bootstrap, JavaScript,
+                        React, Node.js, Express, MongoDB,
+                        and modern web development tools.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="cta-section">
+
+    <div class="container-fluid">
+
+        <div class="cta-box">        
+            <div class="text-center mb-4">
+                <span class="status-badge">
+                <span class="status-dot me-2"></span>
+                Available for Projects </span>
+            </div>
+
+            <h2 class="cta-title">
+                Ready to Bring Your Idea to Life?
+            </h2>
+
+            <p class="cta-text">
+                Whether you're launching a new business, refreshing your
+                online presence, or building a custom web application,
+                I'm here to help turn your vision into a modern,
+                high-performing digital experience.
+            </p>
+
+            <p class="cta-note">
+                Let's build something fast, modern, and designed to grow your business.
+            </p>
+
+            <a href="./public/contact.html" class="btn btn-primary hero-btn">
+                Book a Discovery Call   
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="row gy-5">
+
+            <div class="col-lg-3">
+
+                <img src="./assets/images/logodark.png"
+                     alt="AdeusiLabs"
+                     class="footer-logo">
+
+                <p class="footer-description">
+                    Building modern web experiences that are fast,
+                    responsive, and designed to help businesses grow.
+                </p>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <h5>Quick Links</h5>
+
+                <ul class="footer-links">
+
+                    <a href="./public/about.html">About</a>
+
+                    <a href="./public/services.html">Services</a>
+
+                    <a href="./public/projects.html">Projects</a>
+
+                    <a href="./public/testimonials.html">Testimonials</a>
+
+                    <a href="./public/contact.html">Contact</a>
+
+                </ul>
+            </div>
+
+            <div class=" col-lg-3">
+
+                <h5>Services</h5>
+
+                <ul class="footer-links">
+
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">UI/UX Design</a></li>
+                    <li><a href="#">Responsive Websites</a></li>
+                    <li><a href="#">Website Optimization</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-6 col-lg-3">
+
+                <h5>Connect</h5>
+
+          <ul class="footer-links">
+
+             <li><a href="https://github.com/adedolapoadeusi0-cyber" target="_blank">
+                 <i class="bi bi-github"></i>
+             </a></li>
+
+             <li><a href="https://www.linkedin.com/in/adeusiadedolapodorcas/" target="_blank">
+                <i class="bi bi-linkedin"></i>
+             </a></li>
+
+             <li><a href="https://x.com/codewithdorcas" target="_blank">
+                <i class="bi bi-twitter-x"></i>
+             </a></li>
+
+             <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=adeusilabs@gmail.com" target="_blank">
+              <i class="bi bi-envelope-fill"></i>
+             </a></li>
+
+            </ul>
+
+             </div> 
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p class="copyright">
+                © 2026 AdeusiLabs. All rights reserved.
+            </p>
+        </div>
+    </div>
+
+</footer>
+
+<script src="./index.js"></script>
+
+</body>
+</html>
