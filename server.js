@@ -62,7 +62,7 @@ Pages:
 ${pages}
 
 Features:
-${features.join(", ")}
+${features?.join(", ") || "None"}
 
 Estimated Cost:
 ${estimatedCost}
@@ -110,7 +110,7 @@ await transporter.sendMail({
 
             <p><strong>Pages:</strong> ${pages}</p>
 
-            <p><strong>Features:</strong> ${features.join(", ")}</p>
+            <p><strong>Features:</strong> ${features?.join(", ") || "None"}</p>
 
             <p><strong>Estimated Cost:</strong> ${estimatedCost}</p>
 
