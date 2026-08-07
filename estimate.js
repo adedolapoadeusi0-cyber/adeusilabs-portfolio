@@ -89,63 +89,77 @@ document.querySelectorAll(".feature").forEach(feature=>{
 calculateEstimate();
 
 
-const estimateBtn = document.getElementById("estimateBtn");
+const form = document.getElementById("estimateForm");
 
-estimateBtn.addEventListener("click", async () => {
+form.addEventListener("submit", async (e) => {
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const business = document.getElementById("business").value;
+    e.preventDefault();
 
-    // Get selected Website Type
-    const websiteType = document.querySelector(".estimate-group:nth-child(1) .active").innerText;
+    const websiteType =
+        document.querySelector(".estimate-group:nth-of-type(1) .estimate-option.active h6").innerText;
 
-    // Get selected Pages
-    const pages = document.querySelector(".estimate-group:nth-child(2) .active").innerText;
+    const pages =
+        document.querySelector(".estimate-group:nth-of-type(2) .estimate-option.active").innerText;
 
-    // Get selected Features
-    const features = [];
+    const selectedFeatures = [];
 
     document.querySelectorAll(".feature.active").forEach(feature => {
-        features.push(feature.innerText);
+        selectedFeatures.push(feature.innerText);
     });
 
-    const estimatedCost = document.getElementById("estimatedCost").innerText;
+    const data = {
 
-    const timeline = document.getElementById("timeline").innerText;
+        name: document.getElementById("name").value,
 
-    const response = await fetch("http://localhost:5000/estimate", {
+        email: document.getElementById("email").value,
 
-        method: "POST",
+        business: document.getElementById("business").value,
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+        websiteType,
 
-        body: JSON.stringify({
+        pages,
 
-            name,
-            email,
-            business,
-            websiteType,
-            pages,
-            features,
-            estimatedCost,
-            timeline
+        features: selectedFeatures,
 
-        })
+        estimatedCost: document.getElementById("estimatedCost").innerText,
 
-    });
+        timeline: document.getElementById("timeline").innerText
 
-    const data = await response.json();
+    };
 
-    if(data.success){
+    try {
 
-        alert("Estimate sent successfully!");
+        const response = await fetch("https://adeusilabs-backend.onrender.com/estimate", {
 
-    }else{
+            method: "POST",
 
-        alert("Something went wrong.");
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(data)
+
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+
+            alert("Estimate sent successfully!");
+
+            form.reset();
+
+        } else {
+
+            alert("Something went wrong.");
+
+        }
+
+    } catch (err) {
+
+        console.log(err);
+
+        alert("Server error.");
 
     }
 
