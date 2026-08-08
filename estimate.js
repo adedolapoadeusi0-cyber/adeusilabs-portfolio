@@ -3,53 +3,48 @@ const groups = document.querySelectorAll(".estimate-group");
 const totalPrice = document.getElementById("estimatedCost");
 const timeline = document.getElementById("timeline");
 
-function calculateEstimate(){
+function calculateEstimate() {
 
     let price = 0;
-
     let weeks = 2;
 
-    groups.forEach(group=>{
 
-        const selected = group.querySelector(".estimate-option.active");
+    document.querySelectorAll(
+        ".estimate-option.active:not(.feature)"
+    ).forEach(option => {
 
-        if(selected){
-
-            price += Number(selected.dataset.price);
-
-        }
+        price += Number(option.dataset.price);
 
     });
 
-    document.querySelectorAll(".feature.active").forEach(feature=>{
+
+    document.querySelectorAll(".feature.active").forEach(feature => {
 
         price += Number(feature.dataset.price);
 
     });
 
-    if(price <= 300000){
+    if (price <= 300000) {
         weeks = 2;
     }
-    else if(price <= 500000){
+    else if (price <= 500000) {
         weeks = 3;
     }
-    else if(price <= 700000){
+    else if (price <= 700000) {
         weeks = 5;
     }
-    else if(price <= 1000000){
+    else if (price <= 1000000) {
         weeks = 7;
     }
-    else{
+    else {
         weeks = 10;
     }
 
-
     totalPrice.textContent =
-    "₦" + price.toLocaleString();
+        "₦" + price.toLocaleString();
 
     timeline.textContent =
-    weeks + " Weeks";
-
+        weeks + " Weeks";
 }
 
 
@@ -95,17 +90,25 @@ form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
-    const websiteType =
-        document.querySelector(".estimate-group:nth-of-type(1) .estimate-option.active h6").innerText;
+const estimateGroups = document.querySelectorAll(".estimate-group");
 
-    const pages =
-        document.querySelector(".estimate-group:nth-of-type(2) .estimate-option.active").innerText;
+const websiteOption =
+    estimateGroups[0].querySelector(".estimate-option.active");
 
-    const selectedFeatures = [];
+const pagesOption =
+    estimateGroups[1].querySelector(".estimate-option.active");
 
-    document.querySelectorAll(".feature.active").forEach(feature => {
-        selectedFeatures.push(feature.innerText);
-    });
+const websiteType =
+    websiteOption?.querySelector("h6")?.innerText || "Not selected";
+
+const pages =
+    pagesOption?.innerText || "Not selected";
+
+const selectedFeatures = [];
+
+document.querySelectorAll(".feature.active").forEach(feature => {
+    selectedFeatures.push(feature.innerText.trim());
+});
 
     const data = {
 
