@@ -8,27 +8,65 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
+// ==========================================
+// GMAIL SMTP CONFIGURATION
+// ==========================================
+
 const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
+    requireTLS: true,
+
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
     },
+
+    connectionTimeout: 30000,
+    greetingTimeout: 30000,
+    socketTimeout: 30000,
 });
+
+
+// ==========================================
+// TEST ROUTE
+// ==========================================
 
 app.get("/", (req, res) => {
     res.send("AdeusiLabs Backend Running 🚀");
 });
+
+
+// ==========================================
+// ESTIMATE FORM
+// ==========================================
+
 app.post("/estimate", async (req, res) => {
 
-    console.log("Headers:", req.headers);
+    console.log("=================================");
+    console.log("NEW ESTIMATE REQUEST");
+    console.log("=================================");
+
     console.log("Body:", req.body);
+
+
+    // ------------------------------------------
+    // Check request body
+    // ------------------------------------------
 
     if (!req.body) {
         return res.status(400).json({
+            success: false,
             message: "No request body received."
         });
     }
+
+
+    // ------------------------------------------
+    // Get form information
+    // ------------------------------------------
 
     const {
         name,
@@ -41,11 +79,37 @@ app.post("/estimate", async (req, res) => {
         timeline
     } = req.body;
 
+
+    // ------------------------------------------
+    // Validate required information
+    // ------------------------------------------
+
+    if (!name || !email || !business) {
+        return res.status(400).json({
+            success: false,
+            message: "Please provide your name, email and business."
+        });
+    }
+
+
+    // ------------------------------------------
+    // Email sent TO YOU
+    // ------------------------------------------
+
     const mailOptions = {
+
         from: process.env.EMAIL_USER,
+
         to: process.env.EMAIL_USER,
-        subject: "📩 New Estimate Request",
+
+        replyTo: email,
+
+        subject: "📩 New AdeusiLabs Estimate Request",
+
         text: `
+NEW ESTIMATE REQUEST
+====================
+
 Name:
 ${name}
 
@@ -56,106 +120,187 @@ Business:
 ${business}
 
 Website Type:
-${websiteType}
+${websiteType || "Not provided"}
 
 Pages:
-${pages}
+${pages || "Not provided"}
 
 Features:
-${features?.join(", ") || "None"}
+${Array.isArray(features) ? features.join(", ") : features || "None"}
 
 Estimated Cost:
-${estimatedCost}
+${estimatedCost || "Not provided"}
 
 Timeline:
-${timeline}
-`
+${timeline || "Not provided"}
+
+====================
+        `
     };
 
-    try{
 
-    
-await transporter.sendMail(mailOptions);
+    try {
+
+        console.log("Sending estimate email to AdeusiLabs...");
 
 
-await transporter.sendMail({
+        // ------------------------------------------
+        // Send notification to YOU
+        // ------------------------------------------
 
-    from: process.env.EMAIL_USER,
+        await transporter.sendMail(mailOptions);
 
-    to: email,
+        console.log("✅ Email sent to AdeusiLabs");
 
-    subject: "We've Received Your Estimate Request 🚀",
 
-    html: `
-        <div style="font-family:Arial,sans-serif;padding:30px;max-width:600px;margin:auto">
+        // ------------------------------------------
+        // Send confirmation to CUSTOMER
+        // ------------------------------------------
 
-            <h2 style="color:#A47551;">
-                Hi ${name},
-            </h2>
+        try {
 
-            <p>
-                Thanks for requesting a project estimate from
-                <strong>AdeusiLabs.</strong>
-            </p>
+            await transporter.sendMail({
 
-            <p>
-                We've received the following details:
-            </p>
+                from: process.env.EMAIL_USER,
 
-            <hr>
+                to: email,
 
-            <p><strong>Business:</strong> ${business}</p>
+                subject: "We've Received Your Estimate Request 🚀",
 
-            <p><strong>Website:</strong> ${websiteType}</p>
+                html: `
+                    <div style="
+                        font-family: Arial, sans-serif;
+                        padding: 30px;
+                        max-width: 600px;
+                        margin: auto;
+                        color: #222;
+                    ">
 
-            <p><strong>Pages:</strong> ${pages}</p>
+                        <h2 style="color:#A47551;">
+                            Hi ${name},
+                        </h2>
 
-            <p><strong>Features:</strong> ${features?.join(", ") || "None"}</p>
+                        <p>
+                            Thanks for requesting a project estimate from
+                            <strong>AdeusiLabs.</strong>
+                        </p>
 
-            <p><strong>Estimated Cost:</strong> ${estimatedCost}</p>
+                        <p>
+                            We've received the following details:
+                        </p>
 
-            <p><strong>Timeline:</strong> ${timeline}</p>
+                        <hr>
 
-            <hr>
+                        <p>
+                            <strong>Business:</strong>
+                            ${business}
+                        </p>
 
-            <p>
-                I'll personally review your request and get back to you
-                within 24 hours with a more accurate proposal.
-            </p>
+                        <p>
+                            <strong>Website:</strong>
+                            ${websiteType || "Not provided"}
+                        </p>
 
-            <p>
-                Looking forward to building something amazing together.
-            </p>
+                        <p>
+                            <strong>Pages:</strong>
+                            ${pages || "Not provided"}
+                        </p>
 
-            <h3 style="color:#A47551;">
-                — Dorcas <br>
-                AdeusiLabs
-            </h3>
+                        <p>
+                            <strong>Features:</strong>
+                            ${
+                                Array.isArray(features)
+                                    ? features.join(", ")
+                                    : features || "None"
+                            }
+                        </p>
 
-        </div>
-    `
+                        <p>
+                            <strong>Estimated Cost:</strong>
+                            ${estimatedCost || "Not provided"}
+                        </p>
 
-});
+                        <p>
+                            <strong>Timeline:</strong>
+                            ${timeline || "Not provided"}
+                        </p>
 
-res.json({
-    success: true,
-    message: "Estimate submitted successfully!"
-});
+                        <hr>
 
-    }catch(err){
+                        <p>
+                            I'll personally review your request and get back
+                            to you within 24 hours with a more accurate proposal.
+                        </p>
 
-        console.log(err);
+                        <p>
+                            Looking forward to building something amazing together.
+                        </p>
 
-        res.status(500).json({
-            success:false
+                        <h3 style="color:#A47551;">
+                            — Dorcas
+                            <br>
+                            AdeusiLabs
+                        </h3>
+
+                    </div>
+                `
+            });
+
+            console.log("✅ Confirmation email sent to customer");
+
+        } catch (customerEmailError) {
+
+            // IMPORTANT:
+            // If the customer confirmation fails,
+            // we don't want to pretend the entire request failed.
+
+            console.error(
+                "⚠️ Customer confirmation email failed:",
+                customerEmailError.message
+            );
+
+        }
+
+
+        // ------------------------------------------
+        // Tell frontend everything worked
+        // ------------------------------------------
+
+        return res.status(200).json({
+
+            success: true,
+
+            message: "Estimate submitted successfully!"
+
+        });
+
+
+    } catch (err) {
+
+        console.error("❌ EMAIL ERROR:");
+        console.error(err);
+
+        return res.status(500).json({
+
+            success: false,
+
+            message: "Unable to send estimate email. Please try again later."
+
         });
 
     }
 
 });
 
+
+// ==========================================
+// START SERVER
+// ==========================================
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
+
     console.log(`🚀 Server running on port ${PORT}`);
+
 });
