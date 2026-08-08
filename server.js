@@ -9,35 +9,55 @@ app.use(express.json());
 
 /*
 ========================================
-RESEND EMAIL FUNCTION
+EMAILJS EMAIL FUNCTION
 ========================================
 */
 
-async function sendEmail({ to, subject, html, text }) {
-    const response = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-            "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            from: "AdeusiLabs <onboarding@resend.dev>",
-            to: [to],
-            subject,
-            html,
-            text
-        })
-    });
+async function sendEmail({
+    name,
+    email,
+    business,
+    websiteType,
+    pages,
+    features,
+    estimatedCost,
+    timeline
+}) {
+    const response = await fetch(
+        "https://api.emailjs.com/api/v1.0/email/send",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                service_id: process.env.EMAILJS_SERVICE_ID,
+                template_id: process.env.EMAILJS_TEMPLATE_ID,
+                user_id: process.env.EMAILJS_PUBLIC_KEY,
 
-    const data = await response.json();
+                template_params: {
+                    name,
+                    email,
+                    business,
+                    websiteType,
+                    pages,
+                    features,
+                    estimatedCost,
+                    timeline
+                }
+            })
+        }
+    );
 
     if (!response.ok) {
-        console.error("❌ Resend API Error:", data);
-        throw new Error(data.message || "Resend email failed");
+        const error = await response.text();
+
+        console.error("❌ EmailJS Error:", error);
+
+        throw new Error("Email failed to send");
     }
 
-    console.log("✅ Email sent successfully:", data);
-    return data;
+    console.log("✅ EmailJS message sent successfully!");
 }
 
 
@@ -99,6 +119,12 @@ app.post("/estimate", async (req, res) => {
     }
 
 
+    /*
+    ========================================
+    FORMAT FEATURES
+    ========================================
+    */
+
     const featureList = Array.isArray(features)
         ? features.join(", ")
         : features || "None";
@@ -106,154 +132,7 @@ app.post("/estimate", async (req, res) => {
 
     /*
     ========================================
-    EMAIL TO ADEUSILABS
-    ========================================
-    */
-
-    const adminText = `
-NEW ESTIMATE REQUEST
-
-Name:
-${name}
-
-Email:
-${email}
-
-Business:
-${business}
-
-Website Type:
-${websiteType}
-
-Pages:
-${pages}
-
-Features:
-${featureList}
-
-Estimated Cost:
-${estimatedCost}
-
-Timeline:
-${timeline}
-`;
-
-
-    const adminHtml = `
-        <div style="font-family:Arial,sans-serif;padding:30px;max-width:650px;margin:auto">
-
-            <h2 style="color:#A47551;">
-                📩 New Estimate Request
-            </h2>
-
-            <hr>
-
-            <p><strong>Name:</strong> ${name}</p>
-
-            <p><strong>Email:</strong> ${email}</p>
-
-            <p><strong>Business:</strong> ${business}</p>
-
-            <p><strong>Website Type:</strong> ${websiteType}</p>
-
-            <p><strong>Pages:</strong> ${pages}</p>
-
-            <p><strong>Features:</strong> ${featureList}</p>
-
-            <p><strong>Estimated Cost:</strong> ${estimatedCost}</p>
-
-            <p><strong>Timeline:</strong> ${timeline}</p>
-
-            <hr>
-
-            <p>
-                This estimate was submitted through the AdeusiLabs website.
-            </p>
-
-        </div>
-    `;
-
-
-    /*
-    ========================================
-    CONFIRMATION EMAIL TO CLIENT
-    ========================================
-    */
-
-    const clientHtml = `
-        <div style="font-family:Arial,sans-serif;padding:30px;max-width:600px;margin:auto">
-
-            <h2 style="color:#A47551;">
-                Hi ${name},
-            </h2>
-
-            <p>
-                Thanks for requesting a project estimate from
-                <strong>AdeusiLabs.</strong>
-            </p>
-
-            <p>
-                We've received the following details:
-            </p>
-
-            <hr>
-
-            <p><strong>Business:</strong> ${business}</p>
-
-            <p><strong>Website:</strong> ${websiteType}</p>
-
-            <p><strong>Pages:</strong> ${pages}</p>
-
-            <p><strong>Features:</strong> ${featureList}</p>
-
-            <p><strong>Estimated Cost:</strong> ${estimatedCost}</p>
-
-            <p><strong>Timeline:</strong> ${timeline}</p>
-
-            <hr>
-
-            <p>
-                I'll personally review your request and get back to you
-                within 24 hours with a more accurate proposal.
-            </p>
-
-            <p>
-                Looking forward to building something amazing together.
-            </p>
-
-            <h3 style="color:#A47551;">
-                — Dorcas<br>
-                AdeusiLabs
-            </h3>
-
-        </div>
-    `;
-
-
-    const clientText = `
-Hi ${name},
-
-Thanks for requesting a project estimate from AdeusiLabs.
-
-We've received your request.
-
-Business: ${business}
-Website: ${websiteType}
-Pages: ${pages}
-Features: ${featureList}
-Estimated Cost: ${estimatedCost}
-Timeline: ${timeline}
-
-I'll personally review your request and get back to you within 24 hours.
-
-— Dorcas
-AdeusiLabs
-`;
-
-
-    /*
-    ========================================
-    SEND EMAILS
+    SEND ESTIMATE TO ADEUSILABS
     ========================================
     */
 
@@ -262,25 +141,27 @@ AdeusiLabs
         console.log("📤 Sending estimate to AdeusiLabs...");
 
         await sendEmail({
-            to: process.env.EMAIL_USER,
-            subject: "📩 New Estimate Request",
-            html: adminHtml,
-            text: adminText
+            name,
+            email,
+            business,
+            websiteType,
+            pages,
+            features: featureList,
+            estimatedCost,
+            timeline
         });
 
         console.log("✅ Estimate email sent to AdeusiLabs");
 
 
-        console.log("📤 Sending confirmation to client...");
+        /*
+        ========================================
+        CLIENT CONFIRMATION EMAIL
+        ========================================
 
-        await sendEmail({
-            to: email,
-            subject: "We've Received Your Estimate Request 🚀",
-            html: clientHtml,
-            text: clientText
-        });
-
-        console.log("✅ Confirmation email sent to client");
+        We will add this after creating
+        the second EmailJS template.
+        */
 
 
         return res.status(200).json({
